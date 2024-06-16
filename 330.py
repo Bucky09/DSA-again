@@ -13,3 +13,18 @@ class Solution:
                 result += 1
 
         return result
+################################################
+################################################
+
+class Solution:
+    def minPatches(self, nums: List[int], n: int) -> int:
+        result, i = 0, 0
+        curr = 1
+        while curr <= n:
+            if i < len(nums) and nums[i] <= curr:
+                curr += nums[i]
+                i += 1
+            else:
+                curr += curr
+                result += 1
+        return result
