@@ -1,15 +1,15 @@
+class Solution {
     public int minSteps(int n) {
-        int[] dp = new int[n+1];
-
-        for (int i = 2; i <= n; i++) {
-            dp[i] = i;
-            for (int j = i-1; j > 1; j--) {
-                if (i % j == 0) {
-                    dp[i] = dp[j] + (i/j);
-                    break;
-                }
-                
+       int ans=0;
+       for(int i=2;i*i<=n;){
+            if(n%i==0){
+                ans+=i;
+                n=n/i;
+            }else{
+                i++;
             }
-        }
-        return dp[n];
+       }
+       if(n!=1) ans=ans+n;
+       return ans;
     }
+}
